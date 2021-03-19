@@ -19,6 +19,8 @@ namespace PersonDataManagement
             Retrieving_AverageOfAges(listPersonInCity);
             //UC-5
             Checking_Name_SAM(listPersonInCity);
+            //UC-6
+            Skip_Record(listPersonInCity);
             Console.ReadKey();
         }
         private static void AddRecords(List<Person> listPersonInCity)
@@ -68,6 +70,14 @@ namespace PersonDataManagement
             else
             {
                 Console.WriteLine("SAM don't exists in List..");
+            }
+        }
+
+        private static void Skip_Record(List<Person>listPersonInCity)
+        {
+            foreach(Person person in listPersonInCity.SkipWhile(e => e.Age<60))
+            {
+                Console.WriteLine("Name:" + person.Name + "\tAge:  " + person.Age);
             }
         }
     }
