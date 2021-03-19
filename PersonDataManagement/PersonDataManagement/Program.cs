@@ -15,7 +15,10 @@ namespace PersonDataManagement
             Retrieving_TopTwoRecord_ForAges_LessThanSixty(listPersonInCity);
             //UC-3
             ChekingForTeenagerPerson(listPersonInCity);
+            //UC-4
             Retrieving_AverageOfAges(listPersonInCity);
+            //UC-5
+            Checking_Name_SAM(listPersonInCity);
             Console.ReadKey();
         }
         private static void AddRecords(List<Person> listPersonInCity)
@@ -54,5 +57,18 @@ namespace PersonDataManagement
             double avg = listPersonInCity.Average(e => e.Age);
             Console.WriteLine("Average of Ages:  "+avg.ToString());
         }       
+        //UC-5
+
+        private static void Checking_Name_SAM(List<Person>listPersonInCity)
+        {
+           if( listPersonInCity.Exists(e => e.Name == "SAM")) 
+            {
+                Console.WriteLine("SAM exists in List...");
+            }
+            else
+            {
+                Console.WriteLine("SAM don't exists in List..");
+            }
+        }
     }
 }
