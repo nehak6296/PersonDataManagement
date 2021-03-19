@@ -13,6 +13,8 @@ namespace PersonDataManagement
             AddRecords(listPersonInCity);
             //Uc-2
             Retrieving_TopTwoRecord_ForAges_LessThanSixty(listPersonInCity);
+            //UC-3
+            ChekingForTeenagerPerson(listPersonInCity);
             Console.ReadKey();
         }
         private static void AddRecords(List<Person> listPersonInCity)
@@ -34,6 +36,15 @@ namespace PersonDataManagement
             {
                 Console.WriteLine("Name:" + person.Name + "\tAge:  " + person.Age);
             }
+        }
+        private static void ChekingForTeenagerPerson(List<Person> listPersonInCity)
+        {
+            if (listPersonInCity.Any(e => e.Age >= 13 && e.Age <= 19))
+            {
+                Console.WriteLine("Yes,We have some teen-agers in the list");
+            }
+            else
+                Console.WriteLine("No, we don't have teen-agers in the list");
         }
     }
 }
