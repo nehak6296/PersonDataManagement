@@ -21,6 +21,8 @@ namespace PersonDataManagement
             Checking_Name_SAM(listPersonInCity);
             //UC-6
             Skip_Record(listPersonInCity);
+            //UC-7
+            Remove_Name_Mac(listPersonInCity);
             Console.ReadKey();
         }
         private static void AddRecords(List<Person> listPersonInCity)
@@ -79,6 +81,16 @@ namespace PersonDataManagement
             {
                 Console.WriteLine("Name:" + person.Name + "\tAge:  " + person.Age);
             }
+        }
+
+        private static void Remove_Name_Mac(List<Person>listPersonInCity)
+        {
+        listPersonInCity.RemoveAll(e => (e.Name == "Mac"));
+            if (listPersonInCity.TrueForAll(e=> e.Name!="Mac"))
+            {
+                Console.WriteLine("Mac removed from List");                
+            }
+            
         }
     }
 }
